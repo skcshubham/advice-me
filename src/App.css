@@ -28,7 +28,7 @@ html {
 .App-card {
 	background-color: whitesmoke;
 	width: 50%;
-	height: 40%;
+	height: 30%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -43,6 +43,7 @@ html {
 	align-items: center;
 	height: 800px;
 	font-family: "Ranchers", cursive;
+	font-size: 1.5rem;
 	font-weight: 100;
 	word-spacing: 1px;
 }
