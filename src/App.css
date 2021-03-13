@@ -96,6 +96,6 @@ html {
 @media only screen and (max-width: 800px) {
 	.App-card {
 		width: 80%;
-		height: 40%;
+		height: 35%;
 	}
 }
