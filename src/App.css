@@ -1,6 +1,6 @@
 #root,
-html,
-body {
+body,
+html {
 	margin: 0;
 	padding: 0;
 	height: 100vh;
@@ -9,4 +9,42 @@ body {
 
 .App {
 	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+		url(./images/background.jpg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.App-card {
+	background-color: whitesmoke;
+	width: 40%;
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 20px;
+	padding: 2%;
+	box-shadow: 5px 5px;
+}
+
+.App-heading {
+	display: flex;
+	align-items: center;
+	height: 800px;
+	font-family: "Ranchers", cursive;
+	font-weight: 100;
+	word-spacing: 1px;
+	color: #3f3f3f;
+}
+
+@media only screen and (max-width: 800px) {
+	.App-card {
+		width: 70%;
+		height: 25%;
+	}
 }
