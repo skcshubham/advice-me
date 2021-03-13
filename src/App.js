@@ -6,6 +6,7 @@ import "./App.css";
 class App extends React.Component {
 	state = {
 		advice: "",
+		isLoading: true,
 	};
 
 	// lifecycle method to make API request which gets called when
@@ -17,20 +18,26 @@ class App extends React.Component {
 	// we have to call the api twice, once during loading
 	// and another after key press hence we create a method
 	fetchAdvice = () => {
-		axios
-			.get("https://api.adviceslip.com/advice")
-			.then((response) => {
-				const { advice } = response.data.slip;
-				this.setState({
-					advice: advice,
+		setTimeout(() => {
+			axios
+				.get("https://api.adviceslip.com/advice")
+				.then((response) => {
+					const { advice } = response.data.slip;
+					this.setState({
+						advice: advice,
+						isLoading: false,
+					});
+				})
+				.catch((error) => {
+					const advice =
+						"Either your Internet is off or the API server is down!";
+					this.setState({
+						advice: advice,
+						isLoading: false,
+					});
 				});
-			})
-			.catch((error) => {
-				const advice = "Either your Internet is off or the API server is down!";
-				this.setState({
-					advice: advice,
-				});
-			});
+		}, 3000);
+		this.setState({ isLoading: true });
 	};
 
 	render() {
@@ -45,7 +52,13 @@ class App extends React.Component {
 							className="button btn btn-md btn-outline-info mb-2"
 							onClick={this.fetchAdvice}
 						>
-							<span>Give me advice!</span>
+							{!this.state.isLoading && <span>Give me advice!</span>}
+							{this.state.isLoading && (
+								<span>
+									<i className="fas fa-spinner p-1 mr-1" />
+									Loading new advice from API
+								</span>
+							)}
 						</button>
 					</div>
 				</div>
