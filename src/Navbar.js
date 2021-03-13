@@ -10,18 +10,18 @@ class Navbar extends React.Component {
 						href="https://github.com/skcshubham/advice-me"
 						target="_blank"
 						rel="noreferrer"
-						style={{ fontFamily: "monospace", fontSize: "1.6rem" }}
+						style={{ fontFamily: "monospace", fontSize: "1.5rem" }}
 					>
 						Advice Me!
 					</a>
 					<div className="d-flex">
-						<p className="m-0">built with Advice API</p>
+						<p className="m-0">API used :</p>
 						<a
 							href="https://api.adviceslip.com/"
 							target="_blank"
 							rel="noreferrer"
 						>
-							<i className="fas fa-robot fa-lg pl-1 m-1"></i>
+							<i className="fas fa-robot fa-lg pl-1"></i>
 						</a>
 					</div>
 				</div>
