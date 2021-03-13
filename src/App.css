@@ -3,13 +3,14 @@ body,
 html {
 	margin: 0;
 	padding: 0;
-	height: 100vh;
+	height: 92vh;
 	box-sizing: border-box;
+	color: #3f3f3f;
 }
 
 .App {
 	height: 100%;
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
 		url(./images/background.jpg);
 	background-size: cover;
 	background-position: center;
@@ -19,16 +20,21 @@ html {
 	text-align: center;
 }
 
+.button {
+	border-radius: 50px !important;
+	padding: 6px 18px !important;
+}
+
 .App-card {
 	background-color: whitesmoke;
-	width: 40%;
-	height: 20%;
+	width: 50%;
+	height: 40%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	border-radius: 20px;
-	padding: 2%;
+	padding: 1.5%;
 	box-shadow: 5px 5px;
 }
 
@@ -39,12 +45,56 @@ html {
 	font-family: "Ranchers", cursive;
 	font-weight: 100;
 	word-spacing: 1px;
-	color: #3f3f3f;
+}
+
+.button:hover {
+	animation: rotate 0.7s ease-in-out both;
+}
+
+.button:hover span {
+	animation: storm 0.7s ease-in-out both;
+	animation-delay: 0.06s;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+	25% {
+		transform: rotate(3deg) translate3d(0, 0, 0);
+	}
+	50% {
+		transform: rotate(-3deg) translate3d(0, 0, 0);
+	}
+	75% {
+		transform: rotate(1deg) translate3d(0, 0, 0);
+	}
+	100% {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+}
+
+@keyframes storm {
+	0% {
+		transform: translate3d(0, 0, 0) translateZ(0);
+	}
+	25% {
+		transform: translate3d(4px, 0, 0) translateZ(0);
+	}
+	50% {
+		transform: translate3d(-3px, 0, 0) translateZ(0);
+	}
+	75% {
+		transform: translate3d(2px, 0, 0) translateZ(0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0) translateZ(0);
+	}
 }
 
 @media only screen and (max-width: 800px) {
 	.App-card {
-		width: 70%;
-		height: 25%;
+		width: 80%;
+		height: 40%;
 	}
 }
