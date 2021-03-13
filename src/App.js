@@ -16,15 +16,27 @@ class App extends React.Component {
 	// we have to call the api twice, once during loading
 	// and another after key press hence we create a method
 	fetchAdvice = async () => {
-		const apiData = await axios.get("https://api.adviceslip.com/advice");
-		console.log(apiData.data.slip.advice);
+		axios
+			.get("https://api.adviceslip.com/advice")
+			.then((response) => {
+				const { advice } = response.data.slip;
+				this.setState({
+					advice: advice,
+				});
+				console.log(advice);
+			})
+			.catch((error) => {
+				console.log("Error", error);
+			});
 	};
 
 	render() {
 		return (
-			<React.Fragment>
-				<h1>Hello</h1>
-			</React.Fragment>
+			<div className="App">
+				<div className="App-card">
+					<h1 className="App-heading">{this.state.advice}</h1>
+				</div>
+			</div>
 		);
 	}
 }
